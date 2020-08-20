@@ -9,7 +9,7 @@ import sys
 fontsdir = os.path.join('resources','fonts')
 
 
-epd = epd7in5.EPD()
+epd = epd_driver.EPD()
 logging.info("init and Clear")
 epd.init()
 epd.Clear()
