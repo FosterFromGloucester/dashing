@@ -36,10 +36,9 @@ class StockTickerRibbonComponent(BaseComponent):
 
     def draw(self):
         component_num = 0
-        component_width = math.floor(self.width / len(self.stock_list))
         for component in self.stock_components:
             component_image = component.draw()
-            self.image.paste(component_image,(component_width * component_num, 0))
+            self.image.paste(component_image,(component.width * component_num, 0))
             component_num += 1
         
         return self.image
