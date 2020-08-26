@@ -2,12 +2,13 @@ from .base import BaseComponent
 from .weather_item import WeatherItem
 from PIL import Image,ImageDraw,ImageFont
 import math
+import random
 
 class WeatherRibbonComponent(BaseComponent):
 
     weather_days = [
         'TODAY',
-        'TOMOR',
+        'TOMORROW',
     ]
 
     weather_components = []
@@ -23,7 +24,7 @@ class WeatherRibbonComponent(BaseComponent):
         component_width = math.floor(self.width / len(self.weather_days))
 
         for weather_day in self.weather_days:
-            weather_item = WeatherItem(component_width, self.height,day=weather_day,outlook='sunny',temp_high='10',temp_low='9')
+            weather_item = WeatherItem(component_width, self.height,day=weather_day,outlook=random.choice(['windy', 'cloudy','raining','sunny']),temp_high='10',temp_low='9')
             self.weather_components.append(weather_item) 
 
     def load_component_data(self):
