@@ -9,11 +9,13 @@ class Newslist(BaseComponent):
     # TODO: Remove me 
     news_items = [
         'This is a test news headline',
-        'This is another headline text that is slightly longer'
+        'This is another headline text that is slightly longer',
+        'The longest of all the headlines, just to check everything works correctly',
+        'Last headline'
     ]
     news_components = []
     item_padding = 10
-    item_height = 30
+    item_height = 25
 
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -24,6 +26,7 @@ class Newslist(BaseComponent):
 
     def draw(self):
         component_num = 0
+
         for news_component in self.news_components:
             component_image = news_component.draw()
             self.image.paste(component_image,(self.item_padding, (component_num * self.item_height )))

@@ -8,7 +8,8 @@ class BaseComponent:
     icon_dir = os.path.join('resources','icons')
 
     font_path = (os.path.abspath(os.path.join(fonts_dir, 'Font.ttc')))
-    font24 = ImageFont.truetype(font_path, 18)
+    font18 = ImageFont.truetype(font_path, 18)
+    font24 = ImageFont.truetype(font_path, 24)
 
     def __init__(self, width, height):
         self.width = width

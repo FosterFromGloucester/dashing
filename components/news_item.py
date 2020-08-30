@@ -21,8 +21,8 @@ class NewsItem(BaseComponent):
         draw.rectangle([(0, middle-bullet_height/2),(bullet_width, middle+bullet_height/2)], fill=0)
 
         # Draw the headline text 
-        _, h = draw.textsize(self.headline)
+        _, h = self.font18.getsize(self.headline)
         news_height = ((self.height)-h)/2
-        draw.text((bullet_width + self.padding, news_height), self.headline, font=self.font24, fill=0)
+        draw.text((bullet_width + self.padding, news_height), self.headline, font=self.font18, fill=0)
 
         return self.image
