@@ -27,10 +27,10 @@ class WeatherItem(BaseComponent):
         weather_icon = self.load_icon(self.outlook)
         self.image.paste(weather_icon,(math.floor((self.width-75)/2),day_h+20))
 
-        draw.rectangle([(0,self.height-25),(self.width,self.height-50)],width=self.border_size, fill=0)
+        draw.rectangle([(0,self.height-25),(self.width,self.height-50)],width=self.border_size)
         temp_high_w, _ = self.font24.getsize(self.temp_high)
         temp_h_w_middle= math.floor((self.width-temp_high_w)/2)
-        draw.text((temp_h_w_middle, self.height - 50), self.temp_high, font=self.font24, fill=1)
+        draw.text((temp_h_w_middle, self.height - 50), self.temp_high, font=self.font24, fill=0)
         
         draw.rectangle([(0,self.height),(self.width,self.height-25)],width=self.border_size)
         temp_low_w, _ = self.font24.getsize(self.temp_low)
