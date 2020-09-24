@@ -3,7 +3,7 @@ from .weather_item import WeatherItem
 from PIL import Image,ImageDraw,ImageFont
 import math
 import random
-import requests 
+import requests
 from os import environ
 
 class WeatherRibbonComponent(BaseComponent):
@@ -33,12 +33,12 @@ class WeatherRibbonComponent(BaseComponent):
         component_data = self.load_component_data()
         self.create_components(component_data)
 
-    def create_components(self, component_data):
+    def create_components(self, weather_data):
 
         component_width = math.floor(self.width / len(self.weather_days))
         for weather_day_idx in range(len(self.weather_days)):
-            temps = component_data[weather_day_idx].get('temp',{})
-            outlook_id = component_data[weather_day_idx].get('weather',{})[0].get('id')
+            temps = weather_data[weather_day_idx].get('temp',{})
+            outlook_id = weather_data[weather_day_idx].get('weather',{})[0].get('id')
             weather_item = WeatherItem(
                 component_width,
                 self.height,
@@ -58,10 +58,9 @@ class WeatherRibbonComponent(BaseComponent):
             'appid': environ.get('OPEN_WEATHER_API_TOKEN'),
             'units': 'metric'
         }
-        weather_response = requests.get(url=weather_api, params=params)
+        weather_response = requests.get(url=weather_api, params=params, timeout=10)
         weather_response.raise_for_status()
         weather_data = weather_response.json()
-        print(weather_data)
         return weather_data['daily']
 
 
