@@ -26,7 +26,9 @@ class SurfItem(BaseComponent):
         draw.text((day_w_middle, 10), self.day, font=self.font18, fill=0)
 
         rating_icon = self.load_icon(self.rating)
-        self.image.paste(rating_icon,(2,day_h+40))
+        rating_w, _ = rating_icon.size
+        rating_w_middle= math.floor((self.width-rating_w)/2)
+        self.image.paste(rating_icon,(rating_w_middle,day_h+40))
 
         swell_min_max_w, _ = self.font24.getsize(self.swell_min_max)
         swell_min_max_middle = math.floor((self.width-swell_min_max_w)/2)
@@ -35,7 +37,5 @@ class SurfItem(BaseComponent):
         wind_speed_w, _ = self.font24.getsize(self.wind_speed)
         wind_speed_w_middle= math.floor((self.width-wind_speed_w)/2)
         draw.text((wind_speed_w_middle, self.height - 40), self.wind_speed, font=self.font24, fill=0)
-        
-
 
         return self.image

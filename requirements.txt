@@ -1,5 +1,6 @@
 pillow
 numpy 
-RPi.GPIO
-spidev
+#RPi.GPIO
+#spidev
 requests
+beautifulsoup4

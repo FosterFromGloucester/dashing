@@ -30,7 +30,11 @@ class Newslist(BaseComponent):
 
     def create_components(self, news_data):
         for news_item_idx in range(5):
-            news_item = NewsItem(self.width, self.item_height, headline=self.format_headline(news_data[news_item_idx]['title']))
+            news_item = NewsItem(
+                self.width, 
+                self.item_height, 
+                headline=self.format_headline(news_data[news_item_idx]['title'])
+            )
             self.news_components.append(news_item) 
 
 
@@ -47,7 +51,6 @@ class Newslist(BaseComponent):
 
     def draw(self):
         component_num = 0
-
         for news_component in self.news_components:
             component_image = news_component.draw()
             self.image.paste(component_image,(self.item_padding, (component_num * self.item_height )))

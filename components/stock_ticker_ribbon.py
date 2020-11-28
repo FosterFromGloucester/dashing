@@ -13,7 +13,6 @@ class StockTickerRibbonComponent(BaseComponent):
         'TEST6'
 
     ]
-
     stock_components = []
 
 
@@ -23,9 +22,7 @@ class StockTickerRibbonComponent(BaseComponent):
         self.create_components(component_data)
 
     def create_components(self, component_data):
-
         component_width = math.floor(self.width / len(self.stock_list))
-
         for stock in self.stock_list:
             stock = Stock(component_width, self.height, name = stock, percentage_change='-9.31')
             self.stock_components.append(stock) 
