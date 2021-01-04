@@ -6,16 +6,21 @@ import random
 from bs4 import BeautifulSoup
 import requests
 import re 
-from dataclasses import dataclass
 
 
-@dataclass
 class SurfData:
     day: str
-    rating: int = 0
-    wave_height: str = None
-    wind_speed: str = None
-    wind_direction: str = None
+    rating: int
+    wave_height: str
+    wind_speed: str
+    wind_direction: str
+
+    def __init__(self, day, rating=0, wave_height=None, wind_speed=None, wind_direction=None):
+        self.day = day
+        self.rating = rating
+        self.wave_height = wave_height
+        self.wind_direction = wind_direction
+        self.wind_speed = wind_speed
 
 class SurfRibbonComponent(BaseComponent):
 

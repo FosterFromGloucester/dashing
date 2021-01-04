@@ -12,14 +12,11 @@ class WeatherRibbonComponent(BaseComponent):
         'TODAY',
         'TOMORROW',
     ]
-
     icon_api_mapping = {
         'cloudy': lambda x : 805 > x > 800,
         'raining': lambda x : 532 > x > 199,
         'sunny': lambda x : x == 800,
     }
-
-
     weather_components = []
 
     def derive_outlook_icon(self, weather_id):
@@ -34,7 +31,6 @@ class WeatherRibbonComponent(BaseComponent):
         self.create_components(component_data)
 
     def create_components(self, weather_data):
-
         component_width = math.floor(self.width / len(self.weather_days))
         for weather_day_idx in range(len(self.weather_days)):
             temps = weather_data[weather_day_idx].get('temp',{})

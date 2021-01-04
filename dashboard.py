@@ -16,21 +16,21 @@ weather_ribbon_image = weather_ribbon.draw()
 dashboard_image.paste(weather_ribbon_image,(0,0))
 
 print('Draw Surf...')
-surf_ribbon = SurfRibbonComponent(320,175)
+surf_ribbon = SurfRibbonComponent(320,190)
 surf_ribbon_image = surf_ribbon.draw()
 dashboard_image.paste(surf_ribbon_image,(320,0))
 
 print('Draw News...')
 news_list = Newslist(640,160)
 news_list_image = news_list.draw()
-dashboard_image.paste(news_list_image,(0, weather_ribbon.height + 1))
+dashboard_image.paste(news_list_image,(0, weather_ribbon.height + 10))
 
 print('Draw Stocks...')
 stock_ribbon = StockTickerRibbonComponent(640,50)
 stock_ribbon_image = stock_ribbon.draw()
-dashboard_image.paste(stock_ribbon_image,(0, weather_ribbon.height + news_list.height + 1))
-
+dashboard_image.paste(stock_ribbon_image,(0, weather_ribbon.height + news_list.height + 5))
 on_device = environ.get('ON_DEVICE', False)
+
 if on_device:
     print('Init drivers...')
     from waveshare import epd_driver

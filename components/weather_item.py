@@ -37,9 +37,4 @@ class WeatherItem(BaseComponent):
         temp_l_w_middle= math.floor((self.width-temp_low_w)/2)
         draw.text((temp_l_w_middle, self.height - 25), self.temp_low, font=self.font24, fill=0)
         
-        # day_w_middle= math.floor((self.width-day_w)/2)
-        # print(f'{day_w}:{day_w_middle}')
-        
-
-
         return self.image
